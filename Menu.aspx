@@ -41,7 +41,7 @@
                 </asp:LinkButton><br />
                 <br />
                 <br />
-               <asp:LinkButton ID="btnConsultaScard" CssClass="btn-menu" runat="server" Visible="true" PostBackUrl="~/WoReviewSMTSCARD.aspx">
+               <asp:LinkButton ID="btnConsultaScard" CssClass="btn-menu" runat="server" Visible="true" PostBackUrl="~/WoReviewSMTScard.aspx">
                 <span class="fas fa-search" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;WO Review SCARD
             </asp:LinkButton><br /><br /> <br />
            <%--     <asp:LinkButton ID="btnReparacion" CssClass="btn-menu" runat="server" Visible="false" PostBackUrl="~/ReparacionSalida.aspx" >

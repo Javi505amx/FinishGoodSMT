@@ -21,7 +21,7 @@
             <div class="nav-logo">
                 <asp:Image ImageUrl="~/Resources/Images/inv.png" runat="server" Height="50px" Width="150px" />
             </div>
-            <h1>CONSULTA WO</h1>
+            <h1>CONSULTA WO SCARD</h1>
         </div>
         <div class="form-material">
             <asp:Label ID="lblWO" runat="server" Text="INGRESAR WORK ORDER" Font-Size="150%" Font-Bold="true"></asp:Label><br />
@@ -66,7 +66,7 @@
             <asp:Label ID="userlbl" runat="server" Text="Usuario:"></asp:Label>
             <asp:Label ID="userlabel" runat="server" Text=""></asp:Label>
         </div>
-        <asp:LinkButton CssClass="btnLogout" runat="server" PostBackUrl="~/MenuConsultas.aspx">
+        <asp:LinkButton CssClass="btnLogout" runat="server" PostBackUrl="~/Menu.aspx">
                 <span class="fas fa-backspace" aria-hidden="true"></span> &nbsp;Menú
         </asp:LinkButton>
         <asp:LinkButton CssClass="btnLogout2" runat="server" PostBackUrl="~/Login.aspx">
