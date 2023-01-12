@@ -11,7 +11,8 @@ namespace FinishGoodSMT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            userlbl.Visible = true;
+            userlabel.Text = Session["user"].ToString();
         }
     }
 }

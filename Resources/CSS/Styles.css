@@ -236,10 +236,10 @@ text-align: center;
     color: cadetblue;
 }
 .scrolling-table-container {
-    height: 800px;
-    width: auto;
+    height: 80%;
+    width: 100%;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }
 .card-body{
     max-width: 1000px;
@@ -405,10 +405,10 @@ font-weight: bold;
     align-items: center;
     float:right;
     position: absolute;
-    right: 20px;
+    right: 160px;
     background-color: cadetblue;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     border:0;
     text-decoration: none;
     width:130px;
@@ -418,7 +418,7 @@ font-weight: bold;
     border-radius: 5px;
     color: #fff;
     text-align: center;
-    top: 22%;
+    top: 13.5%;
 }
 
 .btnReset {

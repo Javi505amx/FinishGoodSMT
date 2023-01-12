@@ -122,6 +122,9 @@
                     <asp:LinkButton CssClass="btnReset" ID="btnReset" runat="server" Visible="false" OnClick="btnReset_Click">
                 <span class="fas fa-sync-alt" aria-hidden="true"></span> &nbsp;Reset
             </asp:LinkButton>--%>
+                   <asp:LinkButton CssClass="btnLogout" runat="server" PostBackUrl="~/Menu.aspx">
+                <span class="fas fa-backspace" aria-hidden="true"></span> &nbsp;Menú
+        </asp:LinkButton>
     </form>
 </body>
 </html>

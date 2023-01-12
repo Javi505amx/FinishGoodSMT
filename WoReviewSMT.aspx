@@ -12,6 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
     <script src="Resources/JS/script.js"></script>
+
     <title>Consulta WO</title>
 </head>
 <body class="body-menu">
@@ -23,26 +24,28 @@
             <h1>CONSULTA WO MAIN</h1>
         </div>
         <div class="form-material">
-            <asp:Label ID="lblWO" runat="server" Text="INGRESAR WORK ORDER" Font-Size="150%" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="lblWO" runat="server" Text="INGRESAR WORK ORDER" Font-Size="150%" Font-Bold="true"></asp:Label><br /><br />
             <asp:TextBox ID="txtWO" runat="server" ForeColor="#0079bc" AutoPostBack="true" Font-Size="150%" Style="text-transform: uppercase" AutoCompleteType="Disabled" OnTextChanged="txtWO_TextChanged"></asp:TextBox><br />
         </div>
         <div class="form-control">
             <div class="scrolling-table-container">
-                <asp:GridView ID="GridView1" HeaderStyle-CssClass="bg-secondary text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover table-condensed small-top-margin" DataSourceID="SqlDataSource1">
+                <%--DataSourceID="SqlDataSource1"--%>
+                <asp:GridView ID="GridView1" HeaderStyle-CssClass="bg-secondary text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover table-condensed small-top-margin" >
                     <Columns>
-                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" InsertVisible="False" SortExpression="ID"></asp:BoundField>
-                        <asp:BoundField DataField="WorkOrder" HeaderText="WorkOrder" SortExpression="WorkOrder"></asp:BoundField>
-                        <asp:BoundField DataField="Model" HeaderText="Model" SortExpression="Model"></asp:BoundField>
-                        <asp:BoundField DataField="SerialNumber" HeaderText="SerialNumber" SortExpression="SerialNumber"></asp:BoundField>
-                        <asp:BoundField DataField="UserScan" HeaderText="UserScan" SortExpression="UserScan"></asp:BoundField>
-                        <asp:BoundField DataField="ScanDate" HeaderText="ScanDate" SortExpression="ScanDate"></asp:BoundField>
+                        <asp:BoundField DataField="ID" HeaderText="ID"  ></asp:BoundField>
+                        <asp:BoundField DataField="WorkOrder" HeaderText="WorkOrder" ></asp:BoundField>
+                        <asp:BoundField DataField="Model" HeaderText="Model" ></asp:BoundField>
+                        <asp:BoundField DataField="SerialNumber" HeaderText="SerialNumber" ></asp:BoundField>
+                        <asp:BoundField DataField="UserScan" HeaderText="UserScan" ></asp:BoundField>
+                        <asp:BoundField DataField="ScanDate" HeaderText="ScanDate" ></asp:BoundField>
                     </Columns>
                     <EmptyDataTemplate>
                         <div class="text-center">Sin registros</div>
                     </EmptyDataTemplate>
                 </asp:GridView>
-                <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:con %>' SelectCommand="SELECT * FROM [FinishGood] ORDER BY [ScanDate] DESC"></asp:SqlDataSource>
+                <%--<asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:con %>' SelectCommand="SELECT * FROM [FinishGood] ORDER BY [ScanDate] DESC"></asp:SqlDataSource>--%>
             </div>
+            
         </div>
         <div class="container6">
             <div id="labels" class="labels">
@@ -71,9 +74,11 @@
         <asp:LinkButton CssClass="btnLogout2" runat="server" PostBackUrl="~/Login.aspx">
                 <span class="fas fa-sign-out-alt" aria-hidden="true"></span> &nbsp;
         </asp:LinkButton>
-        <asp:LinkButton ID="btn_export" CssClass="btnLogout3" runat="server" OnClick="btn_export_Click">
+        <asp:LinkButton ID="btn_export" CssClass="btnLogout3" runat="server" OnClick="btn_export_Click1">
                 <span class="fas fa-sign-out-alt" aria-hidden="true"></span> &nbsp;Exportar
         </asp:LinkButton>
+        
+
     </form>
 </body>
 </html>

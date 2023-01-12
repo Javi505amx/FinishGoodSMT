@@ -26,11 +26,11 @@
     <form runat="server">
         <div class="container2 mx-auto">
             <div class="form-control-menu">
-                <asp:LinkButton ID="btnUsuarios" CssClass="btn-menu" runat="server" Visible="true" PostBackUrl="~/Usuarios.aspx">
+<%--                <asp:LinkButton ID="btnUsuarios" CssClass="btn-menu" runat="server" Visible="true" PostBackUrl="~/Usuarios.aspx">
                 <span class="fas fa-users" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Usuarios
                 </asp:LinkButton><br />
                 <br />
-                <br />
+                <br />--%>
                 <asp:LinkButton ID="btnScanWo" CssClass="btn-menu" runat="server" Visible="true" PostBackUrl="~/ScanWo.aspx">
                 <span class="fas fa-qrcode" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;FINISH GOOD
                 </asp:LinkButton><br />
