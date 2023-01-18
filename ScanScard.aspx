@@ -13,6 +13,19 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
 <script src="Resources/JS/script.js"></script>
+    <script type="text/javascript">
+        function SetButtonStatus(sender, target) {
+            Page_ClientValidate();
+            if (!Page_IsValid)
+
+
+                document.getElementById(target).disabled = true;
+
+            else
+                document.getElementById(target).disabled = false;
+
+        }
+    </script>
     <title>Finish Good SCARD/SBOARD</title>
 
  
@@ -30,8 +43,9 @@
             <div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblWO" CssClass="lbldata" runat="server" Text="Work Order" Font-Bold="true"></asp:Label>&nbsp;&nbsp;&nbsp;<br /><br />
-                <asp:Label ID="lblQr" CssClass="lbldata" runat="server" Text="ESCANEAR QR Main" Font-Bold="true"></asp:Label>&nbsp;&nbsp;&nbsp;<br />
-                <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblSN" Visible="true" CssClass="lbldata" runat="server" Text="QR SCAN:"></asp:Label>&nbsp;&nbsp;&nbsp;<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblQr" CssClass="lbldata" runat="server" Text="ESCANEAR QR Main:" Font-Bold="true"></asp:Label>&nbsp;&nbsp;&nbsp;<br /><br/>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" CssClass="lbldata" runat="server" Text="Piezas por panel:" Font-Bold="true"></asp:Label>&nbsp;&nbsp;&nbsp;<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblSN" Visible="true" CssClass="lbldata" runat="server" Text="QR SCAN:"></asp:Label>&nbsp;&nbsp;&nbsp;<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblModel" Visible="true" CssClass="lbldata" runat="server" Text="Modelo:"></asp:Label>&nbsp;&nbsp;&nbsp;<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblpieces" Visible="true" CssClass="lbldata" runat="server" Text="Piezas/Panel:"></asp:Label>&nbsp;&nbsp;&nbsp;<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblQtyWO" CssClass="lbldata" runat="server" Text="Cantidad WO:" Visible="true"></asp:Label>&nbsp;&nbsp;&nbsp;<br />
@@ -44,6 +58,8 @@
             <div id="modQty">
                 <asp:Label ID="txtWorkOrder" CssClass="lbldata4" Font-Bold="true" runat="server" ForeColor="#0079bc"></asp:Label><br /><br />
                 <asp:TextBox ID="txtQRMain" CssClass="txtboxes" runat="server" ForeColor="#0079bc" AutoPostBack="true" Style="text-transform: uppercase" AutoCompleteType="Disabled" OnTextChanged="txtQRMain_TextChanged"></asp:TextBox><br /><br />
+                <asp:TextBox ID="txtQty" CssClass="txtboxes2" runat="server" onkeyup="SetButtonStatus(this, 'Button1')" ForeColor="#0079bc" Enabled="false" AutoPostBack="true" Style="text-transform: uppercase" AutoCompleteType="Disabled" OnTextChanged="txtQty_TextChanged"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1"  ForeColor="Red" Font-Bold="true"  ControlToValidate="txtQty" runat="server" ErrorMessage="only numbers allowed" ValidationExpression="\d+" SetFocusOnError="true" > </asp:RegularExpressionValidator><br />
                  <asp:Label ID="dataQRSN" CssClass="lbldata4" ForeColor="#0079bc" runat="server" Text="" Font-Bold="true"></asp:Label><br />
                 <asp:Label ID="dataModel" CssClass="lbldata4" ForeColor="#0079bc" runat="server" Text="" Font-Bold="true"></asp:Label><br />
                 <asp:Label ID="dataPieces" CssClass="lbldata4" ForeColor="#0079bc" runat="server" Text="" Font-Bold="true"></asp:Label><br />
@@ -71,7 +87,7 @@
 <%--                                    <asp:LinkButton CssClass="btnLogout3" ID="btnPrint" runat="server" Visible="false" OnClick="btnPrint_Click">
                 <span class="fas fa-print" aria-hidden="true"></span> &nbsp;Exportar
             </asp:LinkButton>--%>
-            <asp:LinkButton CssClass="btnReset" ID="btnReset" runat="server" Visible="false" OnClick="btnReset_Click">
+            <asp:LinkButton CssClass="btnReset" ID="btnReset" runat="server" Visible="false" PostBackUrl="~/ScanWO.aspx">
                 <span class="fas fa-sync-alt" aria-hidden="true"></span> &nbsp;Reset
             </asp:LinkButton>
 <%--                    <asp:LinkButton CssClass="btnBalance" ID="btnBalance" runat="server" Visible="false" OnClick="btnBalance_Click">
